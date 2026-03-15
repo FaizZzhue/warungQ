@@ -1,16 +1,52 @@
-# React + Vite
+# Warung Q 🍛
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Warung Q adalah aplikasi web interaktif berbasis React yang mensimulasikan sistem pemesanan makanan digital untuk warung makan Indonesia. Project ini dibangun sebagai implementasi **Basic State Management** menggunakan `useState` pada React.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- **React** — UI library
+- **Vite** — Build tool & dev server
+- **JavaScript** — Bukan TypeScript
+- **Tailwind CSS** — Utility-first styling
+- **Google Fonts** — Plus Jakarta Sans + Inter
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Fitur Utama
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Menampilkan daftar menu makanan dari data statis
+- Toggle **favorite** per item menu menggunakan `useState`
+- **Counter quantity** untuk menambah/mengurangi jumlah pesanan
+- **Conditional rendering** — badge "Habis", cart kosong, total harga
+- Filter menu berdasarkan kategori (Semua / Makanan / Minuman / Snack)
+- Cart summary dengan total harga otomatis
+
+---
+
+## Cara Menjalankan Project
+
+```bash
+# Install dependencies
+npm install
+
+# Jalankan dev server
+npm run dev
+```
+
+---
+
+## Implementasi useState
+
+| Hook | Kegunaan |
+|---|---|
+| `useCart.js` | Mengelola item di keranjang, quantity, dan total harga |
+| `useFavorite.js` | Toggle favorite per item menu |
+| `useFilter.js` | Menyimpan kategori aktif untuk filter menu |
+
+---
+
+## Author
+
+**Afaizyr** — GDGoC Frontend Division 2025/2026
