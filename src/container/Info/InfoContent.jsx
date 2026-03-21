@@ -12,13 +12,7 @@ const InfoContent = ({data, className}) => {
                         : "border-l-2 border-primary p-4"
                     }`}
                 >
-                    <Icon 
-                        size={20} 
-                        className={
-                            data.variant === "accent" 
-                            ? "text-accent" 
-                            : "text-primary"} 
-                    />
+                    <Icon size={20} className={data.color} />
                     <p className="font-heading text-sm mt-2">{data.label}</p>
                         <div>
                             <p className="text-xs text-gray-500">{data.date}</p> 
