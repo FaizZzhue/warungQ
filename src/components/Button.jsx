@@ -3,6 +3,7 @@ const Button = ({ children, onClick, variant, className, disabled}) => {
 
     const variants = {
         primary: "bg-primary text-primary-light hover:bg-primary-dark",
+        second: "bg-accent-dark text-accent-light hover:bg-primary-light hover:text-accent-dark",
         outline: "border border-primary text-primary hover:bg-primary-light",
         danger: "bg-danger text-white hover:bg-danger-dark"
     }
