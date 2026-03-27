@@ -1,12 +1,8 @@
 import { menuItems } from "../../constans/menu";
-import useCart from "../../hooks/useCart";
 import FeaturedMenu from "./FeaturedMenu";
 import MenuContent from "./MenuContent";
 
-
-const Menu = () => {
-    const { cart, addToCart, total } = useCart();
-
+const Menu = ({ cart, addToCart, total }) => {
     return (
         <section 
             id="menu"
@@ -31,7 +27,7 @@ const Menu = () => {
                 />
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default Menu;
