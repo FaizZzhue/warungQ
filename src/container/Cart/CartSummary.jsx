@@ -3,13 +3,7 @@ import { FiMinus, FiTrash2 } from "react-icons/fi";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 
-const CartSummary = ({
-    cart = [],
-    total = 0,
-    onSubmitOrder,
-    removeQuantity,
-    removeFromCart,
-}) => {
+const CartSummary = ({ cart = [], total = 0, onSubmitOrder, removeQuantity, removeFromCart }) => {
     const [tableNumber, setTableNumber] = useState("");
     const [showTableInput, setShowTableInput] = useState(false);
     const inputRef = useRef(null);
