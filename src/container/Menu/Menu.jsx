@@ -8,7 +8,10 @@ const Menu = () => {
     const { cart, addToCart, total } = useCart();
 
     return (
-        <section className="relative overflow-hidden mt-6 px-4 md:px-6">
+        <section 
+            id="menu"
+            className="relative overflow-hidden mt-6 px-4 md:px-6"
+        >
             <div className="mx-auto max-w-6xl">
                 <h1 className="text-center text-2xl font-heading font-bold mb-6 text-primary">
                     Menu Unggulan

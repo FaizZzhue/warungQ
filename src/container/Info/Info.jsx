@@ -17,7 +17,10 @@ const Info = () => {
                     ))}
                 </div>
 
-                <div className="bg-accent py-6 px-6 md:px-10 mt-6 flex flex-col md:flex-row justify-between md:items-center gap-4 mx-4 md:mx-0">
+                <div 
+                    id="promo"
+                    className="bg-accent py-6 px-6 md:px-10 mt-6 flex flex-col md:flex-row justify-between md:items-center gap-4 mx-4 md:mx-0"
+                >
                     <div className="flex flex-col items-center md:items-start">
                         <Badge variant="third">Promo Special</Badge>
 

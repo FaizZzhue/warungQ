@@ -17,8 +17,17 @@ const HeroText = ({data}) => {
             </div>
 
             <div className="flex gap-4 mt-6">
-                <Button variant="primary">Lihat Menu</Button>
-                <Button variant="outline">Tentang Kami</Button>
+                <Button 
+                    variant="primary"
+                    href="#menu"
+                >
+                    Lihat Menu</Button>
+                <Button 
+                    variant="outline"
+                    href="#promo"
+                >
+                    Promo Special
+                </Button>
             </div>
 
             <div className="md:hidden text-[120px] text-center md:text-right mt-4">
