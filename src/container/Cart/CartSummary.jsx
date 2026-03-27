@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import Card from "../../components/Card";
-import Button from "../../components/Button";
+import Card from "../../components/ui/Card";
+import Button from "../../components/ui/Button";
 
 const CartSummary = ({ cart = [], total = 0, onSubmitOrder }) => {
     const [tableNumber, setTableNumber] = useState("");

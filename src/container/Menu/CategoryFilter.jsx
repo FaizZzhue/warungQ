@@ -1,5 +1,5 @@
-import { categories } from "../constans/menu";
-import Button from "./Button";
+import { categories } from "../../constans/menu";
+import Button from "../../components/ui/Button";
 
 const CategoryFilter = ({ activeCategory, setCategory }) => {
     return (

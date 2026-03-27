@@ -1,7 +1,7 @@
-import Badge from "../../components/Badge";
-import Button from "../../components/Button";
+import Badge from "../../components/ui/Badge";
+import Button from "../../components/ui/Button";
 import { infoItems } from "../../constans/info"
-import InfoContent from "./InfoContent"
+import InfoCard from "./InfoCard"
 
 const Info = () => {
     return (
@@ -9,7 +9,7 @@ const Info = () => {
             <div className="mx-auto max-w-6xl">
                 <div className="flex flex-col md:flex-row items-start gap-6 px-6 md:px-0">
                     {infoItems.map((item) => (
-                            <InfoContent 
+                            <InfoCard 
                             key={item.label} 
                             data={item}
                             className="flex-1 w-full"

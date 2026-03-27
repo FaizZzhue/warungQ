@@ -1,6 +1,4 @@
-
-
-const InfoContent = ({data, className}) => {
+const InfoCard = ({data, className}) => {
     const Icon = data.icon
 
     return (
@@ -38,4 +36,4 @@ const InfoContent = ({data, className}) => {
     )
 }
 
-export default InfoContent;
+export default InfoCard;

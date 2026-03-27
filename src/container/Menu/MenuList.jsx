@@ -1,4 +1,4 @@
-import useFavorite from "../hooks/useFavorite";
+import useFavorite from "../../hooks/useFavorite";
 import MenuCard from "./MenuCard";
 
 const MenuList = ({ data, addToCart }) => {

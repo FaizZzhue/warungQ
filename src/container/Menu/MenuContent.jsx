@@ -1,6 +1,6 @@
 import useFilter from "../../hooks/useFilter";
-import CategoryFilter from "../../components/CategoryFilter";
-import MenuList from "../../components/MenuList";
+import CategoryFilter from "./CategoryFilter";
+import MenuList from "./MenuList";
 import CartSummary from "../Cart/CartSummary";
 
 const MenuContent = ({ data, cart, total, addToCart }) => {

@@ -1,7 +1,7 @@
-import Badge from "../../components/Badge";
-import Button from "../../components/Button";
+import Badge from "../../components/ui/Badge";
+import Button from "../../components/ui/Button";
 
-const HeroContent = ({data}) => {
+const HeroText = ({data}) => {
     return (
         <div className="flex flex-col items-center md:items-start justify-center">
             <Badge variant="primary">
@@ -28,4 +28,4 @@ const HeroContent = ({data}) => {
     )
 }
 
-export default HeroContent;
+export default HeroText;

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
-import Card from "./Card";
-import Button from "./Button";
-import Badge from "./Badge";
+import Card from "../../components/ui/Card";
+import Button from "../../components/ui/Button";
+import Badge from "../../components/ui/Badge";
 
 const MenuCard = ({ item, toggleFavorite, isFavorite, addToCart }) => {
     const [qty, setQty] = useState(1);
