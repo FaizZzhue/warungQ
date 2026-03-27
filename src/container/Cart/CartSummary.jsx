@@ -2,7 +2,13 @@ import { useRef, useState } from "react";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 
-const CartSummary = ({ cart = [], total = 0, onSubmitOrder }) => {
+const CartSummary = ({
+    cart = [],
+    total = 0,
+    onSubmitOrder,
+    removeQuantity,
+    removeFromCart,
+}) => {
     const [tableNumber, setTableNumber] = useState("");
     const [showTableInput, setShowTableInput] = useState(false);
     const inputRef = useRef(null);
@@ -34,17 +40,37 @@ const CartSummary = ({ cart = [], total = 0, onSubmitOrder }) => {
                     </p>
                 ) : (
                     cart.map((item) => (
-                        <div key={item.id} className="flex justify-between">
-                            <div>
+                        <div key={item.id} className="flex justify-between gap-3">
+                            <div className="flex-1">
                                 <p className="font-medium">{item.name}</p>
                                 <span className="text-sm text-gray-500">
                                     x{item.quantity}
                                 </span>
                             </div>
 
-                            <p className="font-medium">
-                                Rp {(item.price * item.quantity).toLocaleString()}
-                            </p>
+                            <div className="flex flex-col items-end gap-2">
+                                <p className="font-medium">
+                                    Rp {(item.price * item.quantity).toLocaleString()}
+                                </p>
+
+                                <div className="flex items-center gap-2">
+                                    <Button
+                                        variant="outline"
+                                        shape="circle"
+                                        onClick={() => removeQuantity(item.id)}
+                                    >
+                                        -
+                                    </Button>
+
+                                    <Button
+                                        variant="danger"
+                                        className="px-3 py-1 rounded-md text-xs"
+                                        onClick={() => removeFromCart(item.id)}
+                                    >
+                                        Hapus
+                                    </Button>
+                                </div>
+                            </div>
                         </div>
                     ))
                 )}

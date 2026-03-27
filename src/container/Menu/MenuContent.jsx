@@ -3,7 +3,7 @@ import CategoryFilter from "./CategoryFilter";
 import MenuList from "./MenuList";
 import CartSummary from "../Cart/CartSummary";
 
-const MenuContent = ({ data, cart, total, addToCart }) => {
+const MenuContent = ({ data, cart, total, addToCart, removeFromCart, removeQuantity }) => {
     const { activeCategory, setActiveCategory, filterByCategory } = useFilter();
     const filteredData = filterByCategory(data);
 
@@ -24,7 +24,12 @@ const MenuContent = ({ data, cart, total, addToCart }) => {
 
                 <div className="lg:col-span-4">
                     <div className="lg:sticky lg:top-24">
-                        <CartSummary cart={cart} total={total} />
+                        <CartSummary
+                        cart={cart}
+                        total={total}
+                        removeQuantity={removeQuantity}
+                        removeFromCart={removeFromCart}
+                    />
                     </div>
                 </div>
             </div>
