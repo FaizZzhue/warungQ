@@ -23,13 +23,13 @@ export const menuItems = [
     },
     {
         id: 3,
-        name: "Ayam Bakar",
+        name: "Ayam Goreng",
         description: "Bumbu kecap istimewa",
         price: 20000,
         category: "Makanan",
         emoji: "🍗",
         stock: true,
-        badge: null,
+        badge: "TerUpinIpin",
         featured: true
     },
     {
@@ -62,7 +62,7 @@ export const menuItems = [
         category: "Makanan",
         emoji: "🍚",
         stock: true,
-        badge: null,
+        badge: "Terduduk",
         featured: false
     },
     {
@@ -73,7 +73,7 @@ export const menuItems = [
         category: "Minuman",
         emoji: "🥤",
         stock: true,
-        badge: null,
+        badge: "Termanis",
         featured: true
     },
     {
@@ -123,12 +123,12 @@ export const menuItems = [
     {
         id: 12,
         name: "Risoles",
-        description: "Isi ragout ayam sayur",
+        description: "Isi mayones, telur, sosis",
         price: 5000,
         category: "Snack",
         emoji: "🥐",
         stock: true,
-        badge: null,
+        badge: "TerMaknyus",
         featured: false
     },
 ]

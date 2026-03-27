@@ -54,7 +54,7 @@ const MenuCard = ({ item, toggleFavorite, isFavorite, addToCart }) => {
                 {!item.stock ? (
                     <Badge variant="danger">Habis</Badge>
                 ) : item.badge ? (
-                    <Badge variant="third">{item.badge}</Badge>
+                    <Badge variant="primary">{item.badge}</Badge>
                 ) : null}
             </div>
 
