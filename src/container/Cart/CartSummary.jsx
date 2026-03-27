@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { FiMinus, FiTrash2 } from "react-icons/fi";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 
@@ -28,12 +29,12 @@ const CartSummary = ({
     };
 
     return (
-        <Card className="w-full border border-primary/30 p-4">
+        <Card className="w-full border border-primary-dark p-4">
             <h2 className="font-semibold mb-4">
                 Pesanan kamu
             </h2>
 
-            <div className="flex flex-col gap-3 mb-4">
+            <div className="flex flex-col gap-4 mb-4">
                 {cart.length === 0 ? (
                     <p className="text-sm text-gray-400">
                         Belum ada pesanan
@@ -41,15 +42,15 @@ const CartSummary = ({
                 ) : (
                     cart.map((item) => (
                         <div key={item.id} className="flex justify-between gap-3">
-                            <div className="flex-1">
+                            <div className="flex-1 min-w-0">
                                 <p className="font-medium">{item.name}</p>
                                 <span className="text-sm text-gray-500">
                                     x{item.quantity}
                                 </span>
                             </div>
 
-                            <div className="flex flex-col items-end gap-2">
-                                <p className="font-medium">
+                            <div className="flex flex-col items-end gap-2 shrink-0">
+                                <p className="font-medium text-right">
                                     Rp {(item.price * item.quantity).toLocaleString()}
                                 </p>
 
@@ -59,15 +60,15 @@ const CartSummary = ({
                                         shape="circle"
                                         onClick={() => removeQuantity(item.id)}
                                     >
-                                        -
+                                        <FiMinus className="text-sm" />
                                     </Button>
 
                                     <Button
                                         variant="danger"
-                                        className="px-3 py-1 rounded-md text-xs"
+                                        shape="circle"
                                         onClick={() => removeFromCart(item.id)}
                                     >
-                                        Hapus
+                                        <FiTrash2 className="text-sm" />
                                     </Button>
                                 </div>
                             </div>
@@ -76,7 +77,7 @@ const CartSummary = ({
                 )}
             </div>
 
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex justify-between items-center mb-4 pt-2">
                 <p className="font-semibold">Total</p>
                 <p className="font-semibold text-primary">
                     Rp {total.toLocaleString()}

@@ -24,8 +24,10 @@ const useCart = () => {
             prevCart
                 .map((item) =>
                     item.id === itemId
-                        ? { ...item, quantity: item.quantity - 1 }
-                        : item
+                        ? { ...item, quantity: item.quantity > 1 
+                            ? item.quantity - 1 
+                            : 1 
+                        } : item
                 )
                 .filter((item) => item.quantity > 0)
         );

@@ -7,14 +7,20 @@ import useCart from './hooks/useCart'
 import './index.css'
 
 function App() {
-  const { cart, addToCart, total } = useCart();
+  const { cart, addToCart, removeQuantity, removeFromCart, total } = useCart();
 
   return (
     <>
       <Navbar cart={cart} />
       <Hero />
       <Info />
-      <Menu cart={cart} addToCart={addToCart} total={total} />
+      <Menu
+        cart={cart}
+        addToCart={addToCart}
+        removeQuantity={removeQuantity}
+        removeFromCart={removeFromCart}
+        total={total}
+      />
       <Footer />
     </>
   )

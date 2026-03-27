@@ -2,7 +2,7 @@ import { menuItems } from "../../constans/menu";
 import FeaturedMenu from "./FeaturedMenu";
 import MenuContent from "./MenuContent";
 
-const Menu = ({ cart, addToCart, total }) => {
+const Menu = ({ cart, addToCart, removeQuantity, removeFromCart,total }) => {
     return (
         <section 
             id="menu"
@@ -24,6 +24,8 @@ const Menu = ({ cart, addToCart, total }) => {
                     cart={cart}
                     total={total}
                     addToCart={addToCart}
+                    removeQuantity={removeQuantity}
+                    removeFromCart={removeFromCart}
                 />
             </div>
         </section>
