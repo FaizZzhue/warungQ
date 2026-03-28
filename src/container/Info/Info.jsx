@@ -5,7 +5,10 @@ import InfoCard from "./InfoCard"
 
 const Info = () => {
     return (
-        <section className="relative overflow-hidden mt-6">
+        <section 
+            id="informasi"
+            className="relative overflow-hidden mt-6"
+        >
             <div className="mx-auto max-w-6xl">
                 <div className="flex flex-col md:flex-row items-start gap-6 px-6 md:px-0">
                     {infoItems.map((item) => (

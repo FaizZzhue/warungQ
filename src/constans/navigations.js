@@ -1,6 +1,6 @@
 export const navbarItem = [
-    {name: "Menu", href: "#menu"},
     {name: "Tentang", href: "#tentang"},
+    {name: "Menu", href: "#menu"},
     {name: "Promo", href: "#promo"},
-    {name: "Lokasi", href: "#lokasi"},
+    {name: "Informasi", href: "#informasi"},
 ]
