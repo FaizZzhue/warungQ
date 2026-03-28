@@ -18,13 +18,13 @@ const Menu = ({
             className="relative overflow-hidden mt-6 px-4 md:px-6 scroll-mt-24"
         >
             <div className="mx-auto max-w-6xl">
-                <h1 className="text-center text-2xl font-heading font-bold mb-6 text-primary">
+                <h1 className="text-center text-2xl font-heading font-bold mb-6 text-primary underline underline-offset-8 decoration-primary/60">
                     Menu Unggulan
                 </h1>
 
                 <FeaturedMenu data={menuItems} />
 
-                <h1 className="text-center text-2xl font-heading font-bold mb-6 text-primary">
+                <h1 className="text-center text-2xl font-heading font-bold mb-6 text-primary underline underline-offset-8 decoration-primary/60">
                     Pesan Sekarang
                 </h1>
 
