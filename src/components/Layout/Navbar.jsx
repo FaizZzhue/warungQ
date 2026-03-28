@@ -15,7 +15,10 @@ const Navbar = ({ cart = [] }) => {
         <div className="fixed top-0 w-full bg-white px-6 py-4 z-50">
             <div className="mx-auto max-w-6xl flex justify-between items-center">
                 <div>
-                    <a className="font-heading">
+                    <a 
+                        href="#"
+                        className="font-heading"
+                    >
                         WarungQ
                     </a>
                 </div>
