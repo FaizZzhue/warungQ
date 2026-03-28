@@ -32,7 +32,7 @@ const CartSummary = ({
     };
 
     return (
-        <Card className="w-full border border-primary/30 p-4">
+        <Card className="w-full border border-primary-dark p-4">
             <h2 className="font-semibold mb-4">
                 Pesanan kamu
             </h2>
@@ -61,9 +61,6 @@ const CartSummary = ({
                                     <Button
                                         variant="outline"
                                         shape="circle"
-                                        className={`w-8 h-8 min-w-[32px] min-h-[32px] p-0 rounded-full ${
-                                            item.quantity <= 1 ? "opacity-40 cursor-not-allowed" : ""
-                                        }`}
                                         onClick={() => removeQuantity(item.id)}
                                         disabled={item.quantity <= 1}
                                     >
@@ -72,11 +69,10 @@ const CartSummary = ({
 
                                     <Button
                                         variant="danger"
-                                        className="h-8 px-3 rounded-md text-xs flex items-center gap-1"
+                                        shape="circle"
                                         onClick={() => removeFromCart(item.id)}
                                     >
                                         <FiTrash2 className="text-sm" />
-                                        Hapus
                                     </Button>
                                 </div>
                             </div>
