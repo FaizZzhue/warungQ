@@ -87,7 +87,7 @@ const MenuCard = ({ item, toggleFavorite, isFavorite, addToCart }) => {
                         className="w-full rounded-lg"
                         onClick={handleAddToCart}
                     >
-                        + Tambah
+                        Tambah
                     </Button>
                 </div>
             ) : (
