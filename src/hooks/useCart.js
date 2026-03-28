@@ -21,15 +21,13 @@ const useCart = () => {
 
     const removeQuantity = (itemId) => {
         setCart((prevCart) =>
-            prevCart
-                .map((item) =>
-                    item.id === itemId
-                        ? { ...item, quantity: item.quantity > 1 
-                            ? item.quantity - 1 
-                            : 1 
-                        } : item
-                )
-                .filter((item) => item.quantity > 0)
+            prevCart.map((item) =>
+                item.id === itemId
+                    ? {
+                            ...item,
+                            quantity: item.quantity > 1 ? item.quantity - 1 : 1,
+                    } : item
+            )
         );
     };
 
@@ -37,12 +35,33 @@ const useCart = () => {
         setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
     };
 
-    const total = cart.reduce(
+    const hasFood = cart.some(item => item.category === "Makanan");
+    const hasDrink = cart.some(item => item.category === "Minuman");
+
+    const isEligibleForDiscount = hasFood && hasDrink;
+
+    const subtotal = cart.reduce(
         (total, item) => total + item.price * item.quantity,
         0
     );
 
-    return { cart, addToCart, removeQuantity, removeFromCart, total };
+    const discountPercentage = isEligibleForDiscount ? 20 : 0;
+
+    const discountAmount = subtotal * (discountPercentage / 100);
+
+    const total = subtotal - discountAmount;
+
+    return {
+        cart,
+        addToCart,
+        removeQuantity,
+        removeFromCart,
+        subtotal,
+        discountPercentage,
+        discountAmount,
+        total,
+        isEligibleForDiscount
+    };
 };
 
 export default useCart;

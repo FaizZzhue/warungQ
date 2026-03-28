@@ -1,9 +1,9 @@
 import Badge from "../../components/ui/Badge";
 import Button from "../../components/ui/Button";
-import { infoItems } from "../../constans/info"
-import InfoCard from "./InfoCard"
+import { infoItems } from "../../constans/info";
+import InfoCard from "./InfoCard";
 
-const Info = () => {
+const Info = ({ activateDiscount, discountPercentage }) => {
     return (
         <section 
             id="informasi"
@@ -12,15 +12,15 @@ const Info = () => {
             <div className="mx-auto max-w-6xl">
                 <div className="flex flex-col md:flex-row items-start gap-6 px-6 md:px-0">
                     {infoItems.map((item) => (
-                            <InfoCard 
-                            key={item.label} 
+                        <InfoCard
+                            key={item.label}
                             data={item}
                             className="flex-1 w-full"
                         />
                     ))}
                 </div>
 
-                <div 
+                <div
                     id="promo"
                     className="bg-accent py-6 px-6 md:px-10 mt-6 flex flex-col md:flex-row justify-between md:items-center gap-4 mx-4 md:mx-0"
                 >
@@ -34,15 +34,27 @@ const Info = () => {
                         <p className="text-sm text-accent-dark font-semibold text-center md:text-left">
                             Berlaku setiap hari 11.00 – 14.00. Tidak berlaku untuk menu habis.
                         </p>
+
+                        {discountPercentage > 0 && (
+                            <p className="text-xs text-primary-light mt-2 font-medium">
+                                Promo {discountPercentage}% berhasil diklaim
+                            </p>
+                        )}
                     </div>
 
                     <div className="flex justify-center md:block md:flex-shrink-0">
-                        <Button variant="second">Klaim sekarang</Button>
+                        <Button
+                            variant="second"
+                            onClick={activateDiscount}
+                            disabled={discountPercentage > 0}
+                        >
+                            {discountPercentage > 0 ? "Promo diklaim" : "Klaim sekarang"}
+                        </Button>
                     </div>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default Info;

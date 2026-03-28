@@ -3,7 +3,16 @@ import { FiMinus, FiTrash2 } from "react-icons/fi";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 
-const CartSummary = ({ cart = [], total = 0, onSubmitOrder, removeQuantity, removeFromCart }) => {
+const CartSummary = ({
+    cart = [],
+    subtotal = 0,
+    discountAmount = 0,
+    discountPercentage = 0,
+    total = 0,
+    onSubmitOrder,
+    removeQuantity,
+    removeFromCart,
+}) => {
     const [tableNumber, setTableNumber] = useState("");
     const [showTableInput, setShowTableInput] = useState(false);
     const inputRef = useRef(null);
@@ -23,7 +32,7 @@ const CartSummary = ({ cart = [], total = 0, onSubmitOrder, removeQuantity, remo
     };
 
     return (
-        <Card className="w-full border border-primary-dark p-4">
+        <Card className="w-full border border-primary/30 p-4">
             <h2 className="font-semibold mb-4">
                 Pesanan kamu
             </h2>
@@ -52,17 +61,22 @@ const CartSummary = ({ cart = [], total = 0, onSubmitOrder, removeQuantity, remo
                                     <Button
                                         variant="outline"
                                         shape="circle"
+                                        className={`w-8 h-8 min-w-[32px] min-h-[32px] p-0 rounded-full ${
+                                            item.quantity <= 1 ? "opacity-40 cursor-not-allowed" : ""
+                                        }`}
                                         onClick={() => removeQuantity(item.id)}
+                                        disabled={item.quantity <= 1}
                                     >
                                         <FiMinus className="text-sm" />
                                     </Button>
 
                                     <Button
                                         variant="danger"
-                                        shape="circle"
+                                        className="h-8 px-3 rounded-md text-xs flex items-center gap-1"
                                         onClick={() => removeFromCart(item.id)}
                                     >
                                         <FiTrash2 className="text-sm" />
+                                        Hapus
                                     </Button>
                                 </div>
                             </div>
@@ -71,11 +85,27 @@ const CartSummary = ({ cart = [], total = 0, onSubmitOrder, removeQuantity, remo
                 )}
             </div>
 
-            <div className="flex justify-between items-center mb-4 pt-2">
-                <p className="font-semibold">Total</p>
-                <p className="font-semibold text-primary">
-                    Rp {total.toLocaleString()}
-                </p>
+            <div className="flex flex-col gap-2 mb-4 pt-2">
+                <div className="flex justify-between items-center">
+                    <p className="font-medium">Subtotal</p>
+                    <p className="font-medium">Rp {subtotal.toLocaleString()}</p>
+                </div>
+
+                {discountPercentage > 0 && (
+                    <div className="flex justify-between items-center text-green-600">
+                        <p className="font-medium">Diskon 20%</p>
+                        <p className="font-medium">
+                            - Rp {discountAmount.toLocaleString()}
+                        </p>
+                    </div>
+                )}
+
+                <div className="flex justify-between items-center">
+                    <p className="font-semibold">Total</p>
+                    <p className="font-semibold text-primary">
+                        Rp {total.toLocaleString()}
+                    </p>
+                </div>
             </div>
 
             {showTableInput && (
