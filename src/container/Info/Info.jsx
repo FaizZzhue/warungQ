@@ -25,7 +25,7 @@ const Info = ({ activateDiscount, discountPercentage }) => {
                     className="bg-accent py-6 px-6 md:px-10 mt-6 flex flex-col md:flex-row justify-between md:items-center gap-4 mx-4 md:mx-0"
                 >
                     <div className="flex flex-col items-center md:items-start">
-                        <Badge variant="third">Promo Special</Badge>
+                        <Badge variant="third">Promo Special Buat Kamu yang Buntu</Badge>
 
                         <p className="font-heading font-medium text-accent-dark mt-2 text-center md:text-left text-xl">
                             Diskon 20% untuk paket nasi + minuman
