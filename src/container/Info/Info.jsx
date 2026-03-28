@@ -3,11 +3,12 @@ import Button from "../../components/ui/Button";
 import { infoItems } from "../../constans/info";
 import InfoCard from "./InfoCard";
 
-const Info = ({ activateDiscount, discountPercentage }) => {
+const Info = ({ activateDiscount, discountActivated }) => {
+
     return (
         <section 
             id="informasi"
-            className="relative overflow-hidden mt-6"
+            className="relative overflow-hidden mt-6" 
         >
             <div className="mx-auto max-w-6xl">
                 <div className="flex flex-col md:flex-row items-start gap-6 px-6 md:px-0">
@@ -35,9 +36,9 @@ const Info = ({ activateDiscount, discountPercentage }) => {
                             Berlaku setiap hari 11.00 – 14.00. Tidak berlaku untuk menu habis.
                         </p>
 
-                        {discountPercentage > 0 && (
+                        {discountActivated && (
                             <p className="text-xs text-primary-light mt-2 font-medium">
-                                Promo {discountPercentage}% berhasil diklaim
+                                Promo 20% berhasil diklaim
                             </p>
                         )}
                     </div>
@@ -46,9 +47,12 @@ const Info = ({ activateDiscount, discountPercentage }) => {
                         <Button
                             variant="second"
                             onClick={activateDiscount}
-                            disabled={discountPercentage > 0}
+                            disabled={discountActivated}
                         >
-                            {discountPercentage > 0 ? "Promo diklaim" : "Klaim sekarang"}
+                            {discountActivated 
+                                ? "Voucher diklaim" 
+                                : "Klaim sekarang"
+                            }
                         </Button>
                     </div>
                 </div>

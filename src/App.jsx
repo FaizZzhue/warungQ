@@ -13,11 +13,13 @@ function App() {
     removeQuantity,
     removeFromCart,
     activateDiscount,
-    discountPercentage,
+    discountActivated,
+    isEligibleForDiscount,
     subtotal,
     discountAmount,
+    discountPercentage,
     total
-  } = useCart();
+} = useCart();
 
   return (
     <>
@@ -26,7 +28,8 @@ function App() {
 
       <Info
         activateDiscount={activateDiscount}
-        discountPercentage={discountPercentage}
+        discountActivated={discountActivated} 
+        isEligibleForDiscount={isEligibleForDiscount}
       />
 
       <Menu
