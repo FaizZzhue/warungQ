@@ -4,7 +4,7 @@ import { BiX } from "react-icons/bi"
 const NavMobile = ({isOpen, onClose}) => {
     return (
         <div
-            className={`fixed inset-0 z-40 flex flex-col items-center justify-center bg-black/95 backdrop-blur-md transition-all duration-500 md:hidden z-40 ${
+            className={`fixed inset-0 flex flex-col items-center justify-center bg-black/95 backdrop-blur-md transition-all duration-500 md:hidden z-40 ${
                 isOpen 
                     ? "opacity-100 pointer-events-auto" 
                     : "opacity-0 pointer-events-none"
