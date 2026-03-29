@@ -18,20 +18,19 @@ function App() {
     subtotal,
     discountAmount,
     discountPercentage,
-    total
-} = useCart();
+    total,
+    resetCart,
+  } = useCart();
 
   return (
     <>
       <Navbar cart={cart} />
       <Hero />
-
       <Info
         activateDiscount={activateDiscount}
-        discountActivated={discountActivated} 
+        discountActivated={discountActivated}
         isEligibleForDiscount={isEligibleForDiscount}
       />
-
       <Menu
         cart={cart}
         addToCart={addToCart}
@@ -41,8 +40,8 @@ function App() {
         discountAmount={discountAmount}
         discountPercentage={discountPercentage}
         total={total}
+        onResetCart={resetCart}
       />
-
       <Footer />
     </>
   );

@@ -10,7 +10,8 @@ const Menu = ({
     subtotal,
     discountAmount,
     discountPercentage,
-    total
+    total,
+    onResetCart
 }) => {
     return (
         <section
@@ -38,6 +39,7 @@ const Menu = ({
                     discountAmount={discountAmount}
                     discountPercentage={discountPercentage}
                     total={total}
+                    onResetCart={onResetCart}
                 />
             </div>
         </section>

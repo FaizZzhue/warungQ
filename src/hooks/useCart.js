@@ -56,6 +56,11 @@ const useCart = () => {
     const discountAmount = subtotal * (discountPercentage / 100);
     const total = subtotal - discountAmount;
 
+    const resetCart = () => {
+        setCart([]);
+        setDiscountActivated(false);
+    };
+
     return {
         cart,
         addToCart,
@@ -68,6 +73,7 @@ const useCart = () => {
         discountPercentage,
         discountAmount,
         total,
+        resetCart
     };
 };
 

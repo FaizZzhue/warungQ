@@ -12,7 +12,8 @@ const MenuContent = ({
     total,
     addToCart,
     removeFromCart,
-    removeQuantity
+    removeQuantity,
+    onResetCart
 }) => {
     const { activeCategory, setActiveCategory, filterByCategory } = useFilter();
     const filteredData = filterByCategory(data);
@@ -42,6 +43,7 @@ const MenuContent = ({
                             total={total}
                             removeQuantity={removeQuantity}
                             removeFromCart={removeFromCart}
+                            onResetCart={onResetCart}
                         />
                     </div>
                 </div>
