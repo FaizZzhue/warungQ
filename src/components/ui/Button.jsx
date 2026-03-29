@@ -20,6 +20,7 @@ const Button = ({
     const shapes = {
         default: "px-5 py-2 rounded-sm",
         rounded: "px-5 py-2 rounded-lg",
+        soft: "px-5 py-2 rounded-md",
         circle: "w-9 h-9 rounded-full p-0",
     };
 

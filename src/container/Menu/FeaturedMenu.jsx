@@ -15,17 +15,18 @@ const FeaturedMenu = ({ data }) => {
                     className="relative p-4 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between"
                 >
                     <div className="flex flex-col gap-1 mb-3">
+                        {item.badge && (
+                            <div className="mb-2">
+                                <Badge variant="primary">{item.badge}</Badge>
+                            </div>
+                        )}
+                        
                         <div className="text-3xl mb-2">{item.emoji}</div>
                         <h2 className="font-semibold">{item.name}</h2>
                         <p className="text-sm text-gray-500 line-clamp-2">
                             {item.description}
                         </p>
 
-                        {item.badge && (
-                            <div className="mb-2">
-                                <Badge variant="primary">{item.badge}</Badge>
-                            </div>
-                        )}
 
                         {/* <p className="text-primary font-semibold">
                             Rp {item.price.toLocaleString()}

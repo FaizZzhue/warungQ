@@ -1,5 +1,5 @@
 const Card = ({ children, variant, className }) => {
-    const base = "flex flex-col p-4"
+    const base = "flex flex-col p-4 rounded-none"
 
     const variants = {
         default: "bg-white border border-primary/20",

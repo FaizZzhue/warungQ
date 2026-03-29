@@ -24,7 +24,13 @@ const MenuCard = ({ item, toggleFavorite, isFavorite, addToCart }) => {
             className="relative p-4 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between"
         >
             <div className="flex items-start justify-between mb-3">
-                <div className="text-3xl">{item.emoji}</div>
+                <div className="flex items-center gap-2 mb-3">
+                    {!item.stock ? (
+                        <Badge variant="danger">Habis</Badge>
+                    ) : item.badge ? (
+                        <Badge variant="primary">{item.badge}</Badge>
+                    ) : null}
+                </div>
 
                 <button
                     onClick={() => toggleFavorite(item)}
@@ -38,6 +44,9 @@ const MenuCard = ({ item, toggleFavorite, isFavorite, addToCart }) => {
                 </button>
             </div>
 
+            <div className="text-3xl">{item.emoji}</div>
+
+
             <div className="flex flex-col gap-1 mb-3">
                 <h2 className="font-semibold text-base">{item.name}</h2>
 
@@ -48,14 +57,6 @@ const MenuCard = ({ item, toggleFavorite, isFavorite, addToCart }) => {
                 <p className="text-primary font-semibold">
                     Rp {item.price.toLocaleString()}
                 </p>
-            </div>
-
-            <div className="flex items-center gap-2 mb-3">
-                {!item.stock ? (
-                    <Badge variant="danger">Habis</Badge>
-                ) : item.badge ? (
-                    <Badge variant="primary">{item.badge}</Badge>
-                ) : null}
             </div>
 
             {item.stock ? (
@@ -84,7 +85,7 @@ const MenuCard = ({ item, toggleFavorite, isFavorite, addToCart }) => {
 
                     <Button
                         variant="primary"
-                        className="w-full rounded-lg"
+                        shape="soft"
                         onClick={handleAddToCart}
                     >
                         Tambah
