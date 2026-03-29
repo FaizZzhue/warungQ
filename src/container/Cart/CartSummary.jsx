@@ -124,7 +124,7 @@ const CartSummary = ({
 
             <Button
                 variant="primary"
-                className="w-full rounded-lg"
+                shape="rounded"
                 disabled={!canSubmit}
                 onClick={handleOrderClick}
             >
