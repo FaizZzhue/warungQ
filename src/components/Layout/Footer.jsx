@@ -5,7 +5,7 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <div>
                         <h2 className="font-semibold text-green-900">
-                            Warung Q
+                            WarungQ
                         </h2>
                         <p className="text-sm text-green-800">
                             Jl. Merdeka No. 12, Palembang — 0812-3456-7890
