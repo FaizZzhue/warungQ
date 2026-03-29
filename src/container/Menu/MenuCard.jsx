@@ -23,18 +23,24 @@ const MenuCard = ({ item, toggleFavorite, isFavorite, addToCart }) => {
             variant="default"
             className="relative p-4 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between"
         >
-            <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-start justify-between mb-3 gap-3">
+                <div className="flex-1 min-w-0">
                     {!item.stock ? (
-                        <Badge variant="danger">Habis</Badge>
+                        <Badge variant="danger" className="max-w-full truncate">
+                            Habis
+                        </Badge>
                     ) : item.badge ? (
-                        <Badge variant="primary">{item.badge}</Badge>
-                    ) : null}
+                        <Badge variant="primary" className="max-w-[140px] truncate">
+                            {item.badge}
+                        </Badge>
+                    ) : (
+                        <div className="h-9" />
+                    )}
                 </div>
 
                 <button
                     onClick={() => toggleFavorite(item)}
-                    className="bg-primary-light p-2 rounded-full hover:scale-110 transition flex items-center justify-center"
+                    className="shrink-0 bg-primary-light p-2 rounded-full hover:scale-110 transition flex items-center justify-center"
                 >
                     {isFavorite ? (
                         <FaHeart className="text-primary text-lg" />
@@ -44,8 +50,7 @@ const MenuCard = ({ item, toggleFavorite, isFavorite, addToCart }) => {
                 </button>
             </div>
 
-            <div className="text-3xl">{item.emoji}</div>
-
+            <div className="text-3xl mb-3">{item.emoji}</div>
 
             <div className="flex flex-col gap-1 mb-3">
                 <h2 className="font-semibold text-base">{item.name}</h2>
