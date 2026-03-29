@@ -17,12 +17,17 @@ const CartSummary = ({
     const [toast, setToast] = useState(false);
     const inputRef = useRef(null);
 
+    const isTableFilled = tableNumber.trim() !== "";
+    const canSubmit = cart.length > 0 && isTableFilled;
+
     const handleOrderClick = () => {
-        if (!tableNumber.trim()) {
+        if (!isTableFilled) {
             inputRef.current?.focus();
             return;
         }
+
         setToast(true);
+
         setTimeout(() => {
             setToast(false);
             setTableNumber("");
@@ -32,9 +37,8 @@ const CartSummary = ({
 
     return (
         <Card className="w-full border border-primary-dark p-4 relative">
-
             {toast && (
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-sm px-4 py-2 rounded-lg shadow z-10 whitespace-nowrap">
+                <div className="fixed top-20 left-1/2 -translate-x-1/2 bg-primary text-white text-sm px-4 py-2 rounded-lg shadow-lg z-[999] whitespace-nowrap">
                     Pesanan diterima! Terima kasih 🍛
                 </div>
             )}
@@ -51,18 +55,27 @@ const CartSummary = ({
                                 <p className="font-medium">{item.name}</p>
                                 <span className="text-sm text-gray-500">x{item.quantity}</span>
                             </div>
+
                             <div className="flex flex-col items-end gap-2 shrink-0">
                                 <p className="font-medium text-right">
                                     Rp {(item.price * item.quantity).toLocaleString()}
                                 </p>
+
                                 <div className="flex items-center gap-2">
-                                    <Button variant="outline" shape="circle"
+                                    <Button
+                                        variant="outline"
+                                        shape="circle"
                                         onClick={() => removeQuantity(item.id)}
-                                        disabled={item.quantity <= 1}>
+                                        disabled={item.quantity <= 1}
+                                    >
                                         <FiMinus className="text-sm" />
                                     </Button>
-                                    <Button variant="danger" shape="circle"
-                                        onClick={() => removeFromCart(item.id)}>
+
+                                    <Button
+                                        variant="danger"
+                                        shape="circle"
+                                        onClick={() => removeFromCart(item.id)}
+                                    >
                                         <FiTrash2 className="text-sm" />
                                     </Button>
                                 </div>
@@ -77,12 +90,14 @@ const CartSummary = ({
                     <p className="font-medium">Subtotal</p>
                     <p className="font-medium">Rp {subtotal.toLocaleString()}</p>
                 </div>
+
                 {discountPercentage > 0 && (
                     <div className="flex justify-between items-center text-green-600">
                         <p className="font-medium">Diskon {discountPercentage}%</p>
                         <p className="font-medium">- Rp {discountAmount.toLocaleString()}</p>
                     </div>
                 )}
+
                 <div className="flex justify-between items-center">
                     <p className="font-semibold">Total</p>
                     <p className="font-semibold text-primary">Rp {total.toLocaleString()}</p>
@@ -94,20 +109,23 @@ const CartSummary = ({
                 <input
                     ref={inputRef}
                     type="number"
-                    placeholder="Contoh: 5"
+                    placeholder="Nomor Meja : 18"
                     value={tableNumber}
                     onChange={(e) => setTableNumber(e.target.value)}
                     className="w-full text-center text-sm border border-gray-300 rounded-lg py-2 focus:outline-none focus:ring-1 focus:ring-primary"
                 />
-                {!tableNumber.trim() && cart.length > 0 && (
-                    <p className="text-xs text-danger mt-1">Isi nomor meja dulu ya!</p>
+
+                {!isTableFilled && cart.length > 0 && (
+                    <p className="text-xs text-danger mt-1">
+                        Isi nomor meja terlebih dahulu
+                    </p>
                 )}
             </div>
 
             <Button
                 variant="primary"
                 className="w-full rounded-lg"
-                disabled={cart.length === 0}
+                disabled={!canSubmit}
                 onClick={handleOrderClick}
             >
                 Pesan sekarang
